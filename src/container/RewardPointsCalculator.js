@@ -23,7 +23,12 @@ export const RewardPointsCalculator = () => {
         setLoading(true)
         log.info('Fetching transactions...')
         const data = await fetchTransactions()
-        setTransactions(data)
+        // Sort transactions by purchase date in descending order
+        const sortedTransactions = data.sort(
+          (a, b) => new Date(b.purchaseDate) - new Date(a.purchaseDate)
+        )
+        log.info('Sorted transaction: new one first then older')
+        setTransactions(sortedTransactions)
         log.debug('Transactions fetched:', data)
 
         // Calculate monthly and total rewards

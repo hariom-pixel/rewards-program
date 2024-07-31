@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { fetchTransactions } from '../api'
+import { fetchTransactions } from '../services/api'
 import log from '../logger'
 import TransactionTable from '../components/Transaction/Transaction'
 import MonthlyRewardsTable from '../components/MonthlyRewards/MonthlyRewards'

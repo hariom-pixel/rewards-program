@@ -2,43 +2,53 @@ import React from 'react'
 import { render, screen } from '@testing-library/react'
 import MonthlyRewardsTable from './MonthlyRewards'
 
-// Sample monthly rewards
-// Sample rewards data for testing
-const monthlyRewards = [
-  {
-    customerId: 1,
-    customerName: 'Alice',
-    month: 'January',
-    year: 2024,
-    rewardPoints: 100,
-  },
-  {
-    customerId: 2,
-    customerName: 'Bob',
-    month: 'February',
-    year: 2024,
-    rewardPoints: 150,
-  },
-  // Add more reward objects as needed
-]
+describe('MonthlyRewardsTable', () => {
+  test('renders the component with rewards', () => {
+    const rewards = [
+      {
+        customerId: '3',
+        customerName: 'Alice',
+        month: 6,
+        year: 2024,
+        rewardPoints: 500,
+      },
+      {
+        customerId: '4',
+        customerName: 'Bob',
+        month: 7,
+        year: 2024,
+        rewardPoints: 300,
+      },
+    ]
 
-test('renders MonthlyRewardsTable with correct headers and data', () => {
-  render(<MonthlyRewardsTable monthlyRewards={monthlyRewards} />)
+    render(<MonthlyRewardsTable rewards={rewards} />)
 
-  // Check headers
-  expect(screen.getByText('Customer ID')).toBeInTheDocument()
-  expect(screen.getByText('Month')).toBeInTheDocument()
-  expect(screen.getByText('Year')).toBeInTheDocument()
-  expect(screen.getByText('Reward Points')).toBeInTheDocument()
+    expect(screen.getByText('Monthly Rewards')).toBeInTheDocument()
+    expect(screen.getByText('Customer ID')).toBeInTheDocument()
+    expect(screen.getByText('Name')).toBeInTheDocument()
+    expect(screen.getByText('Month')).toBeInTheDocument()
+    expect(screen.getByText('Reward Points')).toBeInTheDocument()
 
-  // Check if each reward is rendered
-  monthlyRewards?.forEach(
-    ({ customerId, customerName, month, year, rewardPoints }) => {
-      expect(screen.getByText(customerId.toString())).toBeInTheDocument()
-      expect(screen.getByText(customerName)).toBeInTheDocument()
-      expect(screen.getByText(month)).toBeInTheDocument()
-      expect(screen.getByText(year.toString())).toBeInTheDocument()
-      expect(screen.getByText(rewardPoints.toString())).toBeInTheDocument()
-    }
-  )
+    expect(screen.getByText('3')).toBeInTheDocument()
+    expect(screen.getByText('Alice')).toBeInTheDocument()
+    expect(screen.getByText('June')).toBeInTheDocument()
+    expect(screen.getByText(500)).toBeInTheDocument()
+  })
+
+  test('renders the component with no rewards', () => {
+    render(<MonthlyRewardsTable rewards={[]} />)
+
+    expect(screen.getByText('Monthly Rewards')).toBeInTheDocument()
+    expect(screen.getByText('Customer ID')).toBeInTheDocument()
+    expect(screen.getByText('Name')).toBeInTheDocument()
+    expect(screen.getByText('Month')).toBeInTheDocument()
+    expect(screen.getByText('Year')).toBeInTheDocument()
+    expect(screen.getByText('Reward Points')).toBeInTheDocument()
+
+    expect(screen.queryByText('1')).not.toBeInTheDocument()
+    expect(screen.queryByText('Alice')).not.toBeInTheDocument()
+    expect(screen.queryByText('June')).not.toBeInTheDocument()
+    expect(screen.queryByText('2024')).not.toBeInTheDocument()
+    expect(screen.queryByText('500')).not.toBeInTheDocument()
+  })
 })

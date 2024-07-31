@@ -1,5 +1,5 @@
 import React from 'react'
-import { RewardPointsCalculator } from './services/RewardPointsCalculator'
+import { RewardPointsCalculator } from './container/RewardPointsCalculator'
 import './App.css'
 
 const App = () => {

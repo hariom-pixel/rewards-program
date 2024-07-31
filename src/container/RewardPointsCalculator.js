@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { fetchTransactions } from '../api'
+import log from '../logger'
 import TransactionTable from '../components/Transaction/Transaction'
 import MonthlyRewardsTable from '../components/MonthlyRewards/MonthlyRewards'
 import TotalRewardsTable from '../components/TotalRewards/TotalRewards'
@@ -20,8 +21,10 @@ export const RewardPointsCalculator = () => {
     const loadCustomerData = async () => {
       try {
         setLoading(true)
+        log.info('Fetching transactions...')
         const data = await fetchTransactions()
         setTransactions(data)
+        log.debug('Transactions fetched:', data)
 
         // Calculate monthly and total rewards
         const monthlyRewardsData = Object.values(calculateMonthlyRewards(data))
@@ -36,8 +39,10 @@ export const RewardPointsCalculator = () => {
         setTotalRewards(totalRewardsData)
       } catch (err) {
         setError('Failed to load data')
+        log.error('Error fetching transactions:', err)
       } finally {
         setLoading(false)
+        log.info('Finished loading data')
       }
     }
     loadCustomerData()

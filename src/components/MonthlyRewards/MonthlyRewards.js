@@ -1,6 +1,6 @@
 import React from 'react'
 import './MonthlyRewards.css'
-import { getMonthName } from '../../utils/Helper'
+import { getMonthName } from '../../utils/helper'
 
 const MonthlyRewardsTable = ({ rewards }) => (
   <>

@@ -1,6 +1,65 @@
 # Retailer Rewards Calculator
 
-This project is to show reward points of the customers for a retail store using ReactJs. It's calculate reward points on the basis of customer's transactions.
+This project is to show reward points of the customers for a retail store using ReactJs. It calculates reward points based on purchases and displays the data in tables.
+
+## Problem statement
+
+A retailer offers a rewards program to its customers, awarding points based on each recorded purchase.
+
+A customer receives 2 points for every dollar spent over $100 in each transaction, plus 1 point for every dollar spent between $50 and $100 in each transaction.
+
+(e.g. a $120 purchase = 2x$20 + 1x$50 = 90 points). Given a record of every transaction during a three month period, calculate the reward points earned for each customer per month and total.
+
+## Table of Contents
+
+- [Features](#features)
+- [Requirements](#requirements)
+- [Setup](#setup)
+- [File Structure](#file-structure)
+
+## Features
+
+- Calculates reward points based on purchase amounts.
+- Displays monthly and total rewards in tables.
+- Handles data across different years.
+- Proper error handling and loading states.
+- Adheres to code best practices with ESLint.
+
+## Requirements
+
+- Node.js (v14 or later)
+- npm (v6 or later)
+
+## Setup
+
+**Clone the repository:**
+
+https://github.com/hariom-pixel/rewards-program.git
+
+## File Structure
+
+rewards-program/
+├── public/
+│ ├── index.html
+│ └── ...
+├── src/
+│ ├── components/
+│ │ ├── MonthlyRewards/MonthlyRewards.js
+│ │ ├── TotalRewards/TotalRewards.js
+│ │ └── Transaction/Transaction.js
+│ ├── services/
+│ │ └── api.js
+│ ├── utils/
+│ │ └── calculateRewards.js
+│ │ └── helper.js
+│ ├── App.js
+│ ├── index.js
+│ └── ...
+├── .eslint.config.mjs
+├── .gitignore
+├── package.json
+├── README.md
+└── ...
 
 ## Available Scripts
 

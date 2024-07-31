@@ -1,0 +1,16 @@
+.total-rewards-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+}
+
+.total-rewards-table th,
+.total-rewards-table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+
+.total-rewards-table th {
+  background-color: #f2f2f2;
+}

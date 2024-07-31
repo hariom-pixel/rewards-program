@@ -15,7 +15,6 @@ A customer receives 2 points for every dollar spent over $100 in each transactio
 - [Features](#features)
 - [Requirements](#requirements)
 - [Setup](#setup)
-- [File Structure](#file-structure)
 
 ## Features
 
@@ -35,31 +34,6 @@ A customer receives 2 points for every dollar spent over $100 in each transactio
 **Clone the repository:**
 
 https://github.com/hariom-pixel/rewards-program.git
-
-## File Structure
-
-rewards-program/
-├── public/
-│ ├── index.html
-│ └── ...
-├── src/
-│ ├── components/
-│ │ ├── MonthlyRewards/MonthlyRewards.js
-│ │ ├── TotalRewards/TotalRewards.js
-│ │ └── Transaction/Transaction.js
-│ ├── services/
-│ │ └── api.js
-│ ├── utils/
-│ │ └── calculateRewards.js
-│ │ └── helper.js
-│ ├── App.js
-│ ├── index.js
-│ └── ...
-├── .eslint.config.mjs
-├── .gitignore
-├── package.json
-├── README.md
-└── ...
 
 ## Available Scripts
 

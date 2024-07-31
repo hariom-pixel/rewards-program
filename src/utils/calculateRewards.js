@@ -1,24 +1,22 @@
-const rules = [
+const rewardRules = [
   { threshold: 50, multiplier: 1 },
   { threshold: 100, multiplier: 2 },
 ]
 
 // calculate rewards points as per transaction
 export const calculateRewardPoints = (purchaseAmount) => {
-  // Sort rules by threshold in ascending order
-  rules.sort((a, b) => a.threshold - b.threshold)
+  const sortedRules = [...rewardRules].sort((a, b) => b.threshold - a.threshold)
 
-  return rules.reduce((totalPoints, rule) => {
+  const totalPoints = sortedRules.reduce((totalPoints, rule) => {
     if (purchaseAmount > rule.threshold) {
-      const amountInThisRange = Math.min(
-        purchaseAmount - rule.threshold,
-        rule.threshold
-      )
+      const amountInThisRange = purchaseAmount - rule.threshold
+      purchaseAmount = rule.threshold
       return totalPoints + amountInThisRange * rule.multiplier
-    } else {
-      return totalPoints
     }
+    return totalPoints
   }, 0)
+
+  return Math.floor(totalPoints)
 }
 
 // calculate total rewards points as per total transaction

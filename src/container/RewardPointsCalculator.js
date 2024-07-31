@@ -33,6 +33,7 @@ export const RewardPointsCalculator = () => {
 
         // Calculate monthly and total rewards
         const monthlyRewardsData = Object.values(calculateMonthlyRewards(data))
+
         const totalRewardsData = Object.entries(
           calculateTotalRewards(data)
         ).map(([name, points]) => ({
@@ -40,8 +41,15 @@ export const RewardPointsCalculator = () => {
           rewardPoints: points,
         }))
 
+        // sort total rewards by customer name alphabetically
+        const sortedTotalRewards = totalRewardsData.sort((a, b) => {
+          if (!a.customerName) return 1
+          if (!b.customerName) return -1
+          return a.customerName.localeCompare(b.customerName)
+        })
+
         setMonthlyRewards(monthlyRewardsData)
-        setTotalRewards(totalRewardsData)
+        setTotalRewards(sortedTotalRewards)
       } catch (err) {
         setError('Failed to load data')
         log.error('Error fetching transactions:', err)

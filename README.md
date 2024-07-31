@@ -43,9 +43,9 @@ You don't have to ever use `eject`. The curated feature set is suitable for smal
 
 Here is screenshots of running application:
 
-![Screenshot](images/screenshot-1.png)
+![Screenshot](public/images/screenshot-1.png)
 
-![Screenshot](images/screenshot-2.png)
+![Screenshot](public/images/screenshot-2.png)
 
 ## Learn More
 

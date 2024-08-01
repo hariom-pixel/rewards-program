@@ -2,14 +2,14 @@
 import React from 'react'
 import { render, screen, waitFor, act } from '@testing-library/react'
 import { RewardPointsCalculator } from './RewardPointsCalculator'
-import { fetchTransactions } from '../api'
+import { fetchTransactions } from '../services/api'
 import {
   calculateMonthlyRewards,
   calculateTotalRewards,
 } from '../utils/calculateRewards'
 
 // Mock dependencies
-jest.mock('../api', () => ({
+jest.mock('../services/api.js', () => ({
   fetchTransactions: jest.fn(),
 }))
 

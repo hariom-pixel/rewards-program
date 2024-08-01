@@ -25,7 +25,7 @@ describe('MonthlyRewardsTable', () => {
 
     expect(screen.getByText('Monthly Rewards')).toBeInTheDocument()
     expect(screen.getByText('Customer ID')).toBeInTheDocument()
-    expect(screen.getByText('Name')).toBeInTheDocument()
+    expect(screen.getByText('Customer Name')).toBeInTheDocument()
     expect(screen.getByText('Month')).toBeInTheDocument()
     expect(screen.getByText('Reward Points')).toBeInTheDocument()
 
@@ -40,7 +40,7 @@ describe('MonthlyRewardsTable', () => {
 
     expect(screen.getByText('Monthly Rewards')).toBeInTheDocument()
     expect(screen.getByText('Customer ID')).toBeInTheDocument()
-    expect(screen.getByText('Name')).toBeInTheDocument()
+    expect(screen.getByText('Customer Name')).toBeInTheDocument()
     expect(screen.getByText('Month')).toBeInTheDocument()
     expect(screen.getByText('Year')).toBeInTheDocument()
     expect(screen.getByText('Reward Points')).toBeInTheDocument()

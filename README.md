@@ -83,12 +83,14 @@ Here is screenshots of running application:
 
 ## Screenshot 1
 
-![image](https://github.com/user-attachments/assets/bc80d935-bea7-4a7b-893c-cda6d928b919)
+![image](https://github.com/user-attachments/assets/0fa00a61-c9fa-400b-9caa-732190b72072)
+
 
 
 ## Screenshot 2
 
-![image](https://github.com/user-attachments/assets/952a3934-ade9-4bf1-8a79-8d7bbbf9dd0b)
+![image](https://github.com/user-attachments/assets/30a52322-cffc-4253-9386-f2f2c615a3cc)
+
 
 
 ## Learn More

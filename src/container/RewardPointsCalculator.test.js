@@ -77,14 +77,18 @@ describe('RewardPointsCalculator', () => {
   })
 
   test('renders error state', async () => {
-    fetchTransactions.mockRejectedValue(new Error('Failed to load data'))
+    fetchTransactions.mockRejectedValue(
+      new Error('Error fetching transactions:')
+    )
 
     await act(async () => {
       render(<RewardPointsCalculator />)
     })
 
     await waitFor(() => {
-      expect(screen.getByText('Failed to load data')).toBeInTheDocument()
+      expect(
+        screen.getByText('Error fetching transactions:')
+      ).toBeInTheDocument()
     })
   })
 

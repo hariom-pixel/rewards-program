@@ -78,15 +78,18 @@ Here is screenshots of running application:
 
 ## Loader Screenshot
 
-![Screenshot](public/images/loader-screenshot.png)
+![image](https://github.com/user-attachments/assets/e480ba72-2409-4a9d-9098-d4ba42ea5f4c)
+
 
 ## Screenshot 1
 
-![Screenshot](public/images/screenshot-1.png)
+![image](https://github.com/user-attachments/assets/bc80d935-bea7-4a7b-893c-cda6d928b919)
+
 
 ## Screenshot 2
 
-![Screenshot](public/images/screenshot-2.png)
+![image](https://github.com/user-attachments/assets/952a3934-ade9-4bf1-8a79-8d7bbbf9dd0b)
+
 
 ## Learn More
 

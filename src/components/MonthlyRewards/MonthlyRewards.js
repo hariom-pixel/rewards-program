@@ -1,18 +1,20 @@
 import React from 'react'
 import './MonthlyRewards.css'
 import { getMonthName } from '../../utils/helper'
+import { UI_TEXT } from '../../constants/commonConstants'
+import { MONTHLY_REWARDS_TABLE_HEADERS } from '../../constants/tableConstants'
 
 const MonthlyRewardsTable = ({ rewards }) => (
   <>
-    <h2>Monthly Rewards</h2>
+    <h2>{UI_TEXT.monthlyRewardsTitle}</h2>
     <table className='rewards-table'>
       <thead>
         <tr>
-          <th>Customer ID</th>
-          <th>Name</th>
-          <th>Month</th>
-          <th>Year</th>
-          <th>Reward Points</th>
+          <th>{MONTHLY_REWARDS_TABLE_HEADERS.customerId}</th>
+          <th>{MONTHLY_REWARDS_TABLE_HEADERS.customerName}</th>
+          <th>{MONTHLY_REWARDS_TABLE_HEADERS.month}</th>
+          <th>{MONTHLY_REWARDS_TABLE_HEADERS.year}</th>
+          <th>{MONTHLY_REWARDS_TABLE_HEADERS.rewardPoints}</th>
         </tr>
       </thead>
       <tbody>

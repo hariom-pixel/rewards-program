@@ -1,14 +1,16 @@
 import React from 'react'
 import './TotalRewards.css'
+import { UI_TEXT } from '../../constants/commonConstants'
+import { TOTAL_REWARDS_TABLE_HEADERS } from '../../constants/tableConstants'
 
 const TotalRewardsTable = ({ totalRewards }) => (
   <>
-    <h2>Total Rewards</h2>
+    <h2>{UI_TEXT.rewardsTitle}</h2>
     <table className='total-rewards-table'>
       <thead>
         <tr>
-          <th>Customer Name</th>
-          <th>Reward Points</th>
+          <th>{TOTAL_REWARDS_TABLE_HEADERS['customerName']}</th>
+          <th>{TOTAL_REWARDS_TABLE_HEADERS['rewardPoints']}</th>
         </tr>
       </thead>
       <tbody>

@@ -1,19 +1,21 @@
 import React from 'react'
 import './Transaction.css'
 import { calculateRewardPoints } from '../../utils/calculateRewards'
+import { UI_TEXT } from '../../constants/commonConstants'
+import { TRANSACTION_TABLE_HEADERS } from '../../constants/tableConstants'
 
 const TransactionTable = ({ transactions }) => (
   <>
-    <h2>Transactions</h2>
+    <h2>{UI_TEXT.transactionsTitle}</h2>
     <table className='transactions-table'>
       <thead>
         <tr>
-          <th>Transaction ID</th>
-          <th>Customer Name</th>
-          <th>Purchase Date</th>
-          <th>Purchased Product</th>
-          <th>Price</th>
-          <th>Reward Points</th>
+          <th>{TRANSACTION_TABLE_HEADERS.transactionId}</th>
+          <th>{TRANSACTION_TABLE_HEADERS.customerName}</th>
+          <th>{TRANSACTION_TABLE_HEADERS.purchaseDate}</th>
+          <th>{TRANSACTION_TABLE_HEADERS.product}</th>
+          <th>{TRANSACTION_TABLE_HEADERS.price}</th>
+          <th>{TRANSACTION_TABLE_HEADERS.rewardPoints}</th>
         </tr>
       </thead>
       <tbody>

@@ -6,16 +6,16 @@ import { TRANSACTION_TABLE_HEADERS } from '../../constants/tableConstants'
 
 const TransactionTable = ({ transactions }) => (
   <>
-    <h2>{UI_TEXT.transactionsTitle}</h2>
+    <h2>{UI_TEXT.TRANSACTIONS_TITLE}</h2>
     <table className='transactions-table'>
       <thead>
         <tr>
-          <th>{TRANSACTION_TABLE_HEADERS.transactionId}</th>
-          <th>{TRANSACTION_TABLE_HEADERS.customerName}</th>
-          <th>{TRANSACTION_TABLE_HEADERS.purchaseDate}</th>
-          <th>{TRANSACTION_TABLE_HEADERS.product}</th>
-          <th>{TRANSACTION_TABLE_HEADERS.price}</th>
-          <th>{TRANSACTION_TABLE_HEADERS.rewardPoints}</th>
+          <th>{TRANSACTION_TABLE_HEADERS.TRANSACTION_ID}</th>
+          <th>{TRANSACTION_TABLE_HEADERS.CUSTOMER_NAME}</th>
+          <th>{TRANSACTION_TABLE_HEADERS.PURCHASE_DATE}</th>
+          <th>{TRANSACTION_TABLE_HEADERS.PRODUCT}</th>
+          <th>{TRANSACTION_TABLE_HEADERS.PRICE}</th>
+          <th>{TRANSACTION_TABLE_HEADERS.REWARD_POINTS}</th>
         </tr>
       </thead>
       <tbody>

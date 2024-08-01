@@ -9,6 +9,7 @@ import {
   calculateMonthlyRewards,
   calculateTotalRewards,
 } from '../utils/calculateRewards'
+import { TRANSACTION } from '../constants/commonConstants'
 
 export const RewardPointsCalculator = () => {
   const [transactions, setTransactions] = useState([])
@@ -21,15 +22,15 @@ export const RewardPointsCalculator = () => {
     const loadCustomerData = async () => {
       try {
         setLoading(true)
-        log.info('Fetching transactions...')
+        log.info(TRANSACTION.TRANSACTION_INFO)
         const data = await fetchTransactions()
         // Sort transactions by purchase date in descending order
         const sortedTransactions = data.sort(
           (a, b) => new Date(b.purchaseDate) - new Date(a.purchaseDate)
         )
-        log.info('Sorted transaction: new one first then older')
+        log.info(TRANSACTION.TRANSACTION_SORTED)
         setTransactions(sortedTransactions)
-        log.debug('Transactions fetched:', data)
+        log.debug(TRANSACTION.TRANSACTION_SUCCESS, data)
 
         // Calculate monthly and total rewards
         const monthlyRewardsData = Object.values(calculateMonthlyRewards(data))
@@ -51,11 +52,11 @@ export const RewardPointsCalculator = () => {
         setMonthlyRewards(monthlyRewardsData)
         setTotalRewards(sortedTotalRewards)
       } catch (err) {
-        setError('Failed to load data')
-        log.error('Error fetching transactions:', err)
+        setError(TRANSACTION.TRANSACTION_ERROR)
+        log.error(TRANSACTION.TRANSACTION_ERROR, err)
       } finally {
         setLoading(false)
-        log.info('Finished loading data')
+        log.info(TRANSACTION.TRANSACTION_SUCCESS)
       }
     }
     loadCustomerData()

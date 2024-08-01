@@ -6,7 +6,7 @@ import { UI_TEXT } from './constants/commonConstants'
 const App = () => {
   return (
     <div>
-      <h1>{UI_TEXT.title}</h1>
+      <h1>{UI_TEXT.TITLE}</h1>
       <RewardPointsCalculator />
     </div>
   )

@@ -6,15 +6,15 @@ import { MONTHLY_REWARDS_TABLE_HEADERS } from '../../constants/tableConstants'
 
 const MonthlyRewardsTable = ({ rewards }) => (
   <>
-    <h2>{UI_TEXT.monthlyRewardsTitle}</h2>
+    <h2>{UI_TEXT.MONTHLY_REWARDS_TITLE}</h2>
     <table className='rewards-table'>
       <thead>
         <tr>
-          <th>{MONTHLY_REWARDS_TABLE_HEADERS.customerId}</th>
-          <th>{MONTHLY_REWARDS_TABLE_HEADERS.customerName}</th>
-          <th>{MONTHLY_REWARDS_TABLE_HEADERS.month}</th>
-          <th>{MONTHLY_REWARDS_TABLE_HEADERS.year}</th>
-          <th>{MONTHLY_REWARDS_TABLE_HEADERS.rewardPoints}</th>
+          <th>{MONTHLY_REWARDS_TABLE_HEADERS.CUSTOMER_ID}</th>
+          <th>{MONTHLY_REWARDS_TABLE_HEADERS.CUSTOMER_NAME}</th>
+          <th>{MONTHLY_REWARDS_TABLE_HEADERS.MONTH}</th>
+          <th>{MONTHLY_REWARDS_TABLE_HEADERS.YEAR}</th>
+          <th>{MONTHLY_REWARDS_TABLE_HEADERS.REWARD_POINTS}</th>
         </tr>
       </thead>
       <tbody>

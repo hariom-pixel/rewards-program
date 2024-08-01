@@ -5,16 +5,16 @@ export const TOTAL_REWARDS_TABLE_HEADERS = {
 }
 
 export const MONTHLY_REWARDS_TABLE_HEADERS = {
-  customerId: 'Customer ID',
+  CUSTOMER_ID: 'Customer ID',
   ...COMMON_HEADERS,
-  month: 'Month',
-  year: 'Year',
+  MONTH: 'Month',
+  YEAR: 'Year',
 }
 
 export const TRANSACTION_TABLE_HEADERS = {
-  transactionId: 'Transaction ID',
+  TRANSACTION_ID: 'Transaction ID',
   ...COMMON_HEADERS,
-  purchaseDate: 'Purchase Date',
-  product: 'Purchased Product',
-  price: 'Price',
+  PURCHASE_DATE: 'Purchase Date',
+  PRODUCT: 'Purchased Product',
+  PRICE: 'Price',
 }

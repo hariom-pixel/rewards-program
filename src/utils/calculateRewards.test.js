@@ -31,8 +31,8 @@ describe('calculateRewardPoints', () => {
 // calculate total rewards test cases
 describe('calculateTotalRewards', () => {
   it('should return correct rewards for multiple transactions of a single customer', () => {
-    const transactions = [{ customerName: 'Alice', price: 60 }]
-    const expectedRewards = { Alice: 10 } // 10 (60-50)*1 + 135 [(150-100)*2 + 50*1]
+    const transactions = [{ customerName: 'Alice', price: 55 }]
+    const expectedRewards = { Alice: 5 } // 10 (60-50)*1 + 135 [(150-100)*2 + 50*1]
     expect(calculateTotalRewards(transactions)).toEqual(expectedRewards)
   })
 

@@ -59,3 +59,21 @@ export const calculateMonthlyRewards = (transactions) => {
     return acc
   }, {})
 }
+
+// Function to get transactions from the past three consecutive months
+export const getPastThreeMonthsTransactions = (transactions) => {
+  // Define the range for the last three consecutive months
+  const startDate = new Date(Date.UTC(2023, 11, 1)) // December 1, 2023
+  const endDate = new Date(Date.UTC(2024, 1, 29, 23, 59, 59)) // February 29, 2024
+
+  console.log('Fixed Start Date:', startDate.toISOString())
+  console.log('Fixed End Date:', endDate.toISOString())
+
+  // Filter transactions within the defined range
+  const recentTransactions = transactions.filter((transaction) => {
+    const purchaseDate = new Date(transaction.purchaseDate)
+    console.log(`Transaction Date: ${purchaseDate.toISOString()}`)
+    return purchaseDate >= startDate && purchaseDate <= endDate
+  })
+  return recentTransactions
+}

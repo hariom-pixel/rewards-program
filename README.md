@@ -81,16 +81,9 @@ Here is screenshots of running application:
 ![image](https://github.com/user-attachments/assets/e480ba72-2409-4a9d-9098-d4ba42ea5f4c)
 
 
-## Screenshot 1
+## Transactio Tables UI
 
-![image](https://github.com/user-attachments/assets/0fa00a61-c9fa-400b-9caa-732190b72072)
-
-
-
-## Screenshot 2
-
-![image](https://github.com/user-attachments/assets/30a52322-cffc-4253-9386-f2f2c615a3cc)
-
+![image](https://github.com/user-attachments/assets/8a3baf7b-4d3e-4caa-b42e-3b86c35246e2)
 
 
 ## Learn More

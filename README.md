@@ -81,7 +81,7 @@ Here is screenshots of running application:
 ![image](https://github.com/user-attachments/assets/e480ba72-2409-4a9d-9098-d4ba42ea5f4c)
 
 
-## Transactio Tables UI
+## Tables UI
 
 ![image](https://github.com/user-attachments/assets/8a3baf7b-4d3e-4caa-b42e-3b86c35246e2)
 

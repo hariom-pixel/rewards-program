@@ -3,7 +3,7 @@ const rewardRules = [
   { threshold: 100, multiplier: 2 },
 ]
 
-// calculate rewards points as per transaction
+// calculate rewards points as per transaction's amount
 export const calculateRewardPoints = (purchaseAmount) => {
   const sortedRules = [...rewardRules].sort((a, b) => b.threshold - a.threshold)
 
@@ -21,7 +21,7 @@ export const calculateRewardPoints = (purchaseAmount) => {
 
 // calculate total rewards points as per total transaction
 export const calculateTotalRewards = (transactions) => {
-  return transactions.reduce((acc, transaction) => {
+  const totalRewardsData = transactions.reduce((acc, transaction) => {
     const { customerName, price } = transaction
     const rewardPoints = calculateRewardPoints(price)
 
@@ -32,9 +32,18 @@ export const calculateTotalRewards = (transactions) => {
     acc[customerName] += rewardPoints
     return acc
   }, {})
+
+  const totalRewards = Object.entries(totalRewardsData).map(
+    ([name, points]) => ({
+      customerName: name,
+      rewardPoints: points,
+    })
+  )
+
+  return totalRewards
 }
 
-// calculate monthly rewards points as per total transaction in a month
+// calculate monthly rewards points as per total transaction in a month by the customers
 export const calculateMonthlyRewards = (transactions) => {
   return transactions.reduce((acc, transaction) => {
     const { customerName, purchaseDate, price, customerId } = transaction
@@ -60,16 +69,64 @@ export const calculateMonthlyRewards = (transactions) => {
   }, {})
 }
 
-// Function to get transactions from the past three consecutive months
+/* latest three transactions of three consecutive months for each customer
+ if they have three transactions, otherwise show all transactions of that customer
+ */
 export const getPastThreeMonthsTransactions = (transactions) => {
-  // Define the range for the last three consecutive months
-  const startDate = new Date(Date.UTC(2023, 11, 1)) // December 1, 2023
-  const endDate = new Date(Date.UTC(2024, 1, 29, 23, 59, 59)) // February 29, 2024
+  // Group transactions by customerId and process them
+  const result = transactions.reduce((acc, transaction) => {
+    const { customerId } = transaction
+    if (!acc[customerId]) {
+      acc[customerId] = []
+    }
+    acc[customerId].push({
+      ...transaction,
+      purchaseDate: new Date(transaction.purchaseDate),
+    })
 
-  // Filter transactions within the defined range
-  const recentTransactions = transactions.filter((transaction) => {
-    const purchaseDate = new Date(transaction.purchaseDate)
-    return purchaseDate >= startDate && purchaseDate <= endDate
-  })
-  return recentTransactions
+    return acc
+  }, {})
+
+  // Flatten the results after processing each customer
+  const processedResults = Object.values(result).reduce((acc, transactions) => {
+    // Sort by purchaseDate descending
+    const sortedTransactions = transactions.sort(
+      (a, b) => b.purchaseDate - a.purchaseDate
+    )
+
+    // Find three consecutive months
+    const monthValues = sortedTransactions.map(
+      ({ purchaseDate }) =>
+        purchaseDate.getFullYear() * 12 + purchaseDate.getMonth()
+    )
+
+    const latestThreeConsecutive = sortedTransactions
+      .reduce((subAcc, transaction, index) => {
+        const [month1, month2, month3] = [
+          monthValues[index],
+          monthValues[index + 1],
+          monthValues[index + 2],
+        ]
+        if (month1 - month2 === 1 && month2 - month3 === 1) {
+          subAcc.push(transaction)
+        }
+        return subAcc
+      }, [])
+      .slice(0, 3)
+
+    // Convert Dates to strings
+    const transactionsToReturn =
+      latestThreeConsecutive.length === 3
+        ? latestThreeConsecutive
+        : sortedTransactions
+
+    const stringifiedTransactions = transactionsToReturn.map((transaction) => ({
+      ...transaction,
+      purchaseDate: transaction.purchaseDate.toISOString().split('T')[0],
+    }))
+
+    return acc.concat(stringifiedTransactions)
+  }, [])
+
+  return processedResults
 }

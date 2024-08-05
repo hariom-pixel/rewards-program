@@ -27,33 +27,23 @@ export const RewardPointsCalculator = () => {
         let data = await fetchTransactions()
         // record of every transaction during a three month period
         data = getPastThreeMonthsTransactions(data)
-        // Sort transactions by purchase date in descending order
-        const sortedTransactions = data.sort(
-          (a, b) => new Date(b.purchaseDate) - new Date(a.purchaseDate)
-        )
-        log.info(TRANSACTION.TRANSACTION_SORTED)
-        setTransactions(sortedTransactions)
-        log.debug(TRANSACTION.TRANSACTION_SUCCESS, data)
-
-        // Calculate monthly and total rewards
-        const monthlyRewardsData = Object.values(calculateMonthlyRewards(data))
-
-        const totalRewardsData = Object.entries(
-          calculateTotalRewards(data)
-        ).map(([name, points]) => ({
-          customerName: name,
-          rewardPoints: points,
-        }))
-
-        // sort total rewards by customer name alphabetically
-        const sortedTotalRewards = totalRewardsData.sort((a, b) => {
+        // sort total transaction by customer name alphabetically
+        data.sort((a, b) => {
           if (!a.customerName) return 1
           if (!b.customerName) return -1
           return a.customerName.localeCompare(b.customerName)
         })
+        // set transactions in transactions state variable
+        setTransactions(data)
+        log.debug(TRANSACTION.TRANSACTION_SUCCESS, data)
 
+        // Fetch monthly rewards
+        const monthlyRewardsData = Object.values(calculateMonthlyRewards(data))
+        // Fetch total rewards
+        const totalRewards = calculateTotalRewards(data)
+        // set monthly and total rewards
         setMonthlyRewards(monthlyRewardsData)
-        setTotalRewards(sortedTotalRewards)
+        setTotalRewards(totalRewards)
       } catch (err) {
         setError(TRANSACTION.TRANSACTION_ERROR)
         log.error(TRANSACTION.TRANSACTION_ERROR, err)

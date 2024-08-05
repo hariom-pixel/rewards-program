@@ -8,7 +8,7 @@ import LoadingSpinner from '../components/Loader/Loader'
 import {
   calculateMonthlyRewards,
   calculateTotalRewards,
-  getPastThreeMonthsTransactions,
+  getLatestThreeMonthsTransactions,
 } from '../utils/calculateRewards'
 import { TRANSACTION } from '../constants/commonConstants'
 
@@ -26,7 +26,7 @@ export const RewardPointsCalculator = () => {
         log.info(TRANSACTION.TRANSACTION_INFO)
         let data = await fetchTransactions()
         // record of every transaction during a three month period
-        data = getPastThreeMonthsTransactions(data)
+        data = getLatestThreeMonthsTransactions(data)
         // sort total transaction by customer name alphabetically
         data.sort((a, b) => {
           if (!a.customerName) return 1

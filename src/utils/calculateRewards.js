@@ -72,7 +72,7 @@ export const calculateMonthlyRewards = (transactions) => {
 /* latest three transactions of three consecutive months for each customer
  if they have three transactions, otherwise show all transactions of that customer
  */
-export const getPastThreeMonthsTransactions = (transactions) => {
+export const getLatestThreeMonthsTransactions = (transactions) => {
   // Group transactions by customerId and process them
   const result = transactions.reduce((acc, transaction) => {
     const { customerId } = transaction

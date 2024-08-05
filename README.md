@@ -83,7 +83,11 @@ Here is screenshots of running application:
 
 ## Tables UI
 
-![image](https://github.com/user-attachments/assets/8a3baf7b-4d3e-4caa-b42e-3b86c35246e2)
+ ### Screenshot 1
+ ![image](https://github.com/user-attachments/assets/f27aab8e-f468-4a10-a20f-b375d9c19da0)
+
+ ### Screenshot 2
+ ![image](https://github.com/user-attachments/assets/80728396-9e44-44f0-969f-a7de72733598)
 
 
 ## Learn More
